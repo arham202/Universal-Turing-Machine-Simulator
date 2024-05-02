@@ -1,0 +1,19 @@
+Turing machine for the addition function for the unary number system
+
+States: q0,q1,q2,q3,q4
+inital_state: q0
+final_state: q4
+input symbol: + , 1
+tape_symbol: + , 1 , _
+blank_symbol: _
+
+Tranisition function:
+
+q0,1:q1,1,R
+q1,1:q1,1,R
+q1,+:q2,1,R
+q2,1:q2,1,R
+q2,_:q3,_,L
+q3,1:q4,_,R
+q4,_:q5,_,R
+
