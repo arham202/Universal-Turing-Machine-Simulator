@@ -3,6 +3,7 @@ from utm import UTM
 from tm import TuringMachine
 import networkx as nx
 import matplotlib.pyplot as plt
+from matplotlib.patches import Patch
 import time
 
 def main():
@@ -52,10 +53,17 @@ def main():
     
     if st.button("Generate Transition Graph"):
         G = tm.generate_transition_graph()
-        plt.figure(figsize=(10, 6))
         pos = nx.spring_layout(G)
-        nx.draw(G, pos, with_labels=True, node_size=2000, node_color="skyblue", font_size=12, arrows=True)
+        node_colors = ['lightgreen' if node == initial_state else 'lightcoral' if node == accept_states else 'skyblue' for node in G.nodes()]
+        nx.draw(G, pos, with_labels=True, node_size=1500, font_size=10, arrows=True, node_color=node_colors)
         nx.draw_networkx_edge_labels(G, pos, edge_labels={(u, v): d['label'] for u, v, d in G.edges(data=True)})
+        # Create legend
+        legend_elements = [
+            Patch(facecolor='lightgreen', edgecolor='black', label='Initial State'),
+            Patch(facecolor='lightcoral', edgecolor='black', label='Final State'),
+            Patch(facecolor='skyblue', edgecolor='black', label='Other States')
+        ]
+        plt.legend(handles=legend_elements)
         st.pyplot(plt)
 
     def validate_input_string(input_string, input_symbols):

@@ -2,9 +2,9 @@ Turing machine for L={0^n 1^n|n>=1}
 
 States: q0,q1,q2,q3,q4
 inital_state: q0
-final_state: q3
+final_state: q4
 input symbol: 0,1
-tape_symbol: 0,1,X,Y
+tape_symbol: 0,1,X,Y,_
 blank_symbol: _
 
 Tranisition function:
@@ -18,4 +18,4 @@ q2,0:q2,0,L
 q2,Y:q2,Y,L
 q2,X:q0,X,R
 q3,Y:q3,Y,R
-q3,B:q4,B,R
+q3,_:q4,_,R

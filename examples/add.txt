@@ -1,6 +1,6 @@
 Turing machine for the addition function for the unary number system
 
-States: q0,q1,q2,q3,q4
+States: q0,q1,q2,q3,q4,q5
 inital_state: q0
 final_state: q4
 input symbol: + , 1

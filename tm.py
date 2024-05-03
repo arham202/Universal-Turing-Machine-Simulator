@@ -12,7 +12,7 @@ class TuringMachine:
         self.accept_states = accept_states
         self.transitions = transitions
         self.current_state = initial_state
-        self.tape = [blank_symbol]  # Initialize with blank symbol
+        self.tape = [blank_symbol]
         self.blank_symbol = blank_symbol
         self.head_position = 0
 
@@ -67,14 +67,18 @@ class TuringMachine:
     def generate_transition_graph(self):
         G = nx.DiGraph()
 
+        initial_state = self.initial_state
+        final_state = self.accept_states
+
         for transition, (next_state, write_symbol, move) in self.transitions.items():
             current_state, symbol = transition
             G.add_edge(current_state, next_state, label=f"{symbol}, {write_symbol}, {move}")
-
-            # Add self-loop labels
             if current_state == next_state:
-                if (current_state, current_state) not in G:
+                if (current_state, current_state) not in G.edges():
                     G.add_edge(current_state, current_state, label=f"{symbol}, {write_symbol}, {move}")
                 else:
                     G.edges[current_state, current_state]['label'] += f"\n{symbol}, {write_symbol}, {move}"
+        node_colors = ['lightgreen' if node == initial_state else 'lightcoral' if node == final_state else 'skyblue' for node in G.nodes()]
+        nx.set_node_attributes(G, dict(zip(G.nodes(), node_colors)), 'color')
+
         return G

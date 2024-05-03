@@ -77,7 +77,7 @@ class UTM:
 
         split_by_00 = self.tape1.split("00")
         split_by_00_and_0 = [segment.split("0") for segment in split_by_00]
-        split_input = encoded_input_string.split("00")
+        split_input = encoded_input_string.split("00") # Tape 2
 
         head_pos = 0
         curr_state = self.inital_states
@@ -127,46 +127,3 @@ class UTM:
 
             if curr_state == self.final_states:
                 return True
-
-
-
-# # Define the set of states and input symbols
-# states = {'q0', 'q1', 'q2','q3','q4','q5'}
-# input_symbols = {'+','1','_'}
-# initial_state = 'q0'
-# final_state = 'q4'
-
-# # Define the transition dictionary
-# transition = {
-#     ('q0','1'): ('q1','1','R'),
-#     ('q1', '1'): ('q1', '1', 'R'),
-#     ('q1','+'): ('q2', '1', 'R'),
-#     ('q2', '1'): ('q2', '1', 'R'),
-#     ('q2','_'): ('q3', '_', 'L'),
-#     ('q3', '1'): ('q4', '_', 'R'),
-# }
-
-# # Create UTM object
-# utm = UTM(states, input_symbols, transition, initial_state, final_state)
-
-
-# # Print the state, symbol, and transition mappings
-# print("State Mapping:")
-# print(utm.state_mapping)
-
-# print("\nSymbol Mapping:")
-# print(utm.symbol_mapping)
-
-# print("\nTransition Dictionary:")
-# for value in utm.encode_transitions:
-#     print(f"{value}")
-
-# print("\nTurning Machine Tape 1")
-# print(utm.tape1)
-
-# # Encode input string
-# input_string = "111+11_"
-
-# # Simulate Turing Machine
-# result = utm.simulate_turing_machine(input_string)
-# print("Result:", result)
