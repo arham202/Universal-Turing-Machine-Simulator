@@ -14,13 +14,12 @@ def main():
 
     st.sidebar.header("Define Turing Machine")
     states = ','.join([x.strip() for x in st.sidebar.text_input("Enter States (comma-separated):", key="states").split(',') if x.strip()])
-    tape_symbols = ','.join([x.strip() for x in st.sidebar.text_input("Enter Tape symbols (comma-separated):", key="tape_symbols").split(',') if x.strip()])
+    tape_symbols = ','.join([x.strip() for x in st.sidebar.text_input("Enter Tape alphabets (comma-separated):", key="tape_symbols").split(',') if x.strip()])
     alphabet = ','.join([x.strip() for x in st.sidebar.text_input("Enter Input symbols (comma-separated):", key="input").split(',') if x.strip()])
     blank_symbol = '_'
     st.sidebar.code("Blank symbol: _ ")
     initial_state = st.sidebar.text_input("Enter Initial state:", key="initial_state").strip()
     accept_states = ','.join([x.strip() for x in st.sidebar.text_input("Enter Accept states (comma-separated):", key="accept_states").split(',') if x.strip()])
-
 
     
     transitions = {}

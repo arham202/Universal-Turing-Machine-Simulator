@@ -5,13 +5,13 @@ import time
 
 class TuringMachine:
     def __init__(self, states, tape_symbols,alphabet,blank_symbol, initial_state, accept_states, transitions):
-        self.states = states
-        self.tape_symbols = tape_symbols
-        self.alphabet = alphabet
-        self.initial_state = initial_state
-        self.accept_states = accept_states
-        self.transitions = transitions
-        self.current_state = initial_state
+        self.states = states # Q
+        self.tape_symbols = tape_symbols # T
+        self.alphabet = alphabet # E
+        self.initial_state = initial_state # q0
+        self.accept_states = accept_states # F
+        self.transitions = transitions # 8
+        self.current_state = initial_state 
         self.tape = [blank_symbol]
         self.blank_symbol = blank_symbol
         self.head_position = 0

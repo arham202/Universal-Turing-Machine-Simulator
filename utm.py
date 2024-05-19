@@ -3,7 +3,7 @@ import streamlit as st
 class UTM:
     def __init__(self, states, input_symbols, transition,inital_state,final_state,blank_symbol):
         self.states = states
-        self.input_symbols = input_symbols
+        self.input_symbols = input_symbols # tape symbols
         self.blank_symbol = blank_symbol
         self.transition = transition
         self.direction_mapping = {'L': '1', 'R': '11'}
